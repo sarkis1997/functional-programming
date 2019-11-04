@@ -1,6 +1,8 @@
 # Datavisualisation with D3
 
 ## Requirements
+* Terminal
+* Code Editor
 
 ## Install
 1. Run the terminal
