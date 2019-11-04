@@ -6,6 +6,10 @@
 
 ## Concept
 
+### How will it look?
+<img src="https://github.com/sarkis1997/functional-programming/blob/master/images/concept.png">
+
+
 ## Features
 
 ## API
