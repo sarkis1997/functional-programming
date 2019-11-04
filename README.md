@@ -1,5 +1,4 @@
-# functional-programming
-Datavisualisation with D3
+# Datavisualisation with D3
 
 ## Requirements
 
