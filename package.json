@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sarkis1997/functional-programming/issues"
   },
-  "homepage": "https://github.com/sarkis1997/functional-programming#readme"
+  "homepage": "https://github.com/sarkis1997/functional-programming#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
