@@ -19,6 +19,8 @@ I came with the idea to make something like a collapsible force layout (https://
 
 
 ## Features
+* Click to explore
+* Hover for details
 
 ## API
 The API is a dataset of around 700.000 objects of the NMVW. 
@@ -31,6 +33,7 @@ To be more specific, I have fetched the following things per object:
 * Images
 
 ### Query
+
 
 ## License
 <a href="https://github.com/sarkis1997/functional-programming/blob/master/LICENSE">MIT</a> @ Sarkis Moeradjan
