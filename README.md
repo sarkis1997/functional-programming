@@ -29,6 +29,7 @@ I have fetched all the objects.
 To be more specific, I have fetched on geographical location starting on the top level and going down levels untill the lowest level. I just need to count the amount of object per geographical location.
 
 * [Geographical location](https://collectie.wereldculturen.nl/thesaurus/?query=search=purl=[termmaster2]&showtype=record#/query/662d3ba5-da86-4dd1-a76f-90863ec0a547)
+* Objects
 
 ### Query
 
