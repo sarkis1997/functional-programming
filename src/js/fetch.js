@@ -1,8 +1,8 @@
 import {urlQuery} from "./utils/querys/herkomst";
 
-//const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql";
+const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql";
 
-/*const query = `
+const query = `
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -22,8 +22,9 @@ SELECT ?herkomst ?herkomstLabel ?herkomstLabelSub ?herkomstLabelSubSub ?herkomst
   ?herkomstSubSubSub skos:narrower ?herkomstSubSubSubSub .
   ?herkomstSubSubSubSub skos:prefLabel ?herkomstLabelSubSubSubSub
 }
-`
-*/
+`;
+
+let urlQuery = url+"?query="+ encodeURIComponent(query) +"&format=json";
 
 let dataRaw = [];
 

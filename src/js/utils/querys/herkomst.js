@@ -22,4 +22,4 @@ SELECT ?herkomst ?herkomstLabel ?herkomstLabelSub ?herkomstLabelSubSub ?herkomst
 }
 `
 
-export let urlQuery = url+"?query="+ encodeURIComponent(query) +"&format=json"gitgit push
+export let urlQuery = url+"?query="+ encodeURIComponent(query) +"&format=json"

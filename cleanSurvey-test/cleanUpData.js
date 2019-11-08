@@ -108,9 +108,8 @@ function CleanData() {
         })
 
 
-        return range.reduce((average, currentNumber) => {
-            return (average + currentNumber) / range.length
+        return range.reduce((accumulator, currentNumber) => {
+            return (accumulator + currentNumber) / range.length
         }).toString().replace('.', ',') //Make string of number + replaces the decimal
     }).join("\r\n") //makes string (with new line) of the items array
-    
 }
