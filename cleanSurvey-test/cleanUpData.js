@@ -1,4 +1,4 @@
-let string = `Hoe hoog is je studieschuld op dit moment?
+let datastring = `Hoe hoog is je studieschuld op dit moment?
 1000-5000
 Geen studieschuld
 5000-10000
@@ -85,8 +85,8 @@ Geen studieschuld
 /**
  * @return {string}
  */
-function CleanData() {
-    const array = string.split(/\n/)
+function CleanData(data) {
+    const array = data.split(/\n/)
     const items = array.map(item => {
         return item.split('-')
     });
