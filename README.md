@@ -24,13 +24,11 @@ I came with the idea to make something like a collapsible force layout (https://
 
 ## API
 The API is a dataset of around 700.000 objects of the NMVW. 
-I have fetched all the objects related to slavery.
+I have fetched all the objects.
 
-To be more specific, I have fetched the following things per object:
-* Titles
-* Descriptions
-* Periods
-* Images
+To be more specific, I have fetched on geographical location starting on the top level and going down levels untill the lowest level. I just need to count the amount of object per geographical location.
+
+* [Geographical location](https://collectie.wereldculturen.nl/thesaurus/?query=search=purl=[termmaster2]&showtype=record#/query/662d3ba5-da86-4dd1-a76f-90863ec0a547)
 
 ### Query
 
