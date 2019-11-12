@@ -5,23 +5,36 @@ const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/servic
 let herkomstData;
 
 let createD3 = function () {
-	let width = 500, height = 500;
+	let width = 600, height = 400;
 
 	let svg = d3.select(".chart")
 		.append("svg")
 		.attr("width", width)
 		.attr("height", height)
 		.append("g")
-		.attr("transform", "translate(0,0)");
+		.attr("transform", "translate(" + width / 3 + ", " + height / 3 + ")");
+
+	let radiusScale = d3.scaleSqrt().domain([1, 435694]).range([10, 80])
 
 	let simulation = d3.forceSimulation()
+		.force("x", d3.forceX(width / 2).strength(0.010))
+		.force("y", d3.forceY(height / 2).strength(0.010))
+		.force("collide", d3.forceCollide(function(d) {
+			return radiusScale(d.qty) + 3;
+		}));
 
 	let circles = svg.selectAll(".artist")
-			.data(herkomstData)
-			.enter().append("circle")
-			.attr("class", "artist")
-			.attr("r", 10)
-			.attr("fill", "lightblue")
+		.data(herkomstData)
+		.enter().append("circle")
+		.attr("class", "artist")
+		.attr("r", function(d) {
+			return radiusScale(d.qty)
+		})
+		.attr("fill", "lightblue")
+		.on("click", function(d) {
+			console.log(d)
+		});
+
 
 	simulation.nodes(herkomstData)
 		.on("tick", ticked)
