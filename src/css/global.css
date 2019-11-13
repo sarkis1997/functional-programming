@@ -30,14 +30,15 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 70%;
 }
 
 .legenda > div {
-    width: 6em;
+    width: 8em;
     height: 3em;
     text-align: center;
     line-height: 3;
+    color: white;
 }
 
 .legenda > div:nth-of-type(1) {

@@ -1,6 +1,6 @@
-import {fetchData} from "./utils/fetchFunction.js";
-import {herkomst, subHerkomst} from "./utils/queries.js";
-import changeColorOnQty from './utils/changeColorOnQty.js'
+import { fetchData } from "./utils/fetchFunction.js";
+import { herkomst, subHerkomst } from "./utils/queries.js";
+import { changeColorOnQtySidebar, changeColorOnQtyCircle } from './utils/changeColorOnQty.js';
 const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql";
 let herkomstData;
 
@@ -39,7 +39,9 @@ let createD3 = function () {
 		.attr("r", function(d) {
 			return radiusScale(d.qty)
 		})
-		.attr("fill", "lightblue")
+		.attr("fill", function(d) {
+			return changeColorOnQtyCircle(d.qty)
+		})
 		.on("click", function(d) {
 			let sidebar = document.querySelector('.sidebar');
 			document.querySelector('.sidebar h1').innerHTML = "Location: " + d.geoName;
@@ -48,7 +50,8 @@ let createD3 = function () {
 			} else {
 				document.querySelector('.sidebar h2').innerHTML = "Objects: " + d.qty;
 			}
-			changeColorOnQty(d.qty, sidebar)
+			changeColorOnQtySidebar(d.qty, sidebar)
+
 		});
 
 //on state change, run function ticked
