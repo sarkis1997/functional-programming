@@ -84,5 +84,8 @@ To be more specific, I have fetched on geographical location starting on the top
   
 </details>
 
+## Pattern data cleaning
+[Go to code](https://github.com/sarkis1997/functional-programming/wiki/Cleaned-dataset)
+
 ## License
 <a href="https://github.com/sarkis1997/functional-programming/blob/master/LICENSE">MIT</a> @ Sarkis Moeradjan
