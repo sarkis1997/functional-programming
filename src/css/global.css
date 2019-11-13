@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+#layOut {
+    display: grid;
+    justify-content: right;
+}
+
+.chart {
+    grid-column: 1;
+}
+
+.sidebar {
+    grid-column: 2;
+    width: 25em;
+    background: lightgray;
+    padding: 10em 0 0 5em;
+}
