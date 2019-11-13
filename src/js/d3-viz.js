@@ -1,18 +1,8 @@
 import {fetchData} from "./utils/fetchFunction.js";
-import {herkomst} from "./utils/queries.js";
+import {herkomst, subHerkomst} from "./utils/queries.js";
+import changeColorOnQty from './utils/changeColorOnQty.js'
 const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql";
 let herkomstData;
-
-let changeColorOnQty = function(d) {
-	switch (d) {
-		case d <= 500:
-			console.log('kleiner dan 500')
-			break;
-		case d > 500 && d <= 5000:
-			console.log('kleiner dan 500')
-			break;
-	}
-};
 
 let createD3 = function () {
 	//create new array with all qty's of objects.
@@ -23,8 +13,6 @@ let createD3 = function () {
 		})
 	};
 	getQtyArr(herkomstData);
-
-
 
 	let width = 1000, height = 750;
 
@@ -53,12 +41,14 @@ let createD3 = function () {
 		})
 		.attr("fill", "lightblue")
 		.on("click", function(d) {
+			let sidebar = document.querySelector('.sidebar');
 			document.querySelector('.sidebar h1').innerHTML = "Location: " + d.geoName;
-			document.querySelector('.sidebar h2').innerHTML = "Objects: " + d.qty;
-
-			changeColorOnQty(d.qty)
-			console.log(d.qty)
-
+			if (d.qty <= 1) {
+				document.querySelector('.sidebar h2').innerHTML = "Object: " + d.qty;
+			} else {
+				document.querySelector('.sidebar h2').innerHTML = "Objects: " + d.qty;
+			}
+			changeColorOnQty(d.qty, sidebar)
 		});
 
 //on state change, run function ticked
@@ -82,6 +72,9 @@ let createD3 = function () {
 
 
 
+
+
+
 //fetch data (2nd parameter is data I can pass)
 fetchData(url, herkomst)
 	.then(data => {
@@ -98,5 +91,6 @@ fetchData(url, herkomst)
 		console.log(herkomstData)
 	})
 	.then(createD3);
+
 
 //Special thanks to https://www.youtube.com/watch?v=lPr60pexvEM for the D3 tutorial
