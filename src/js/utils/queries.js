@@ -1,3 +1,5 @@
+//this file contains all the queries which I import in my fetch function.
+
 export const herkomst = `
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>

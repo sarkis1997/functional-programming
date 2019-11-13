@@ -1,3 +1,6 @@
+//this is the function that fetches the data and returns an array.
+//The function can receive 2 parameters, x for the url and y for the query.
+
 const newQuery = function(x, y) {
 	return (x+"?query="+ encodeURIComponent(y) +"&format=json");
 };

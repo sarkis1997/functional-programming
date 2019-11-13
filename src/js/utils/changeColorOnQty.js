@@ -1,5 +1,7 @@
+//create a array which contains colors that are used in the data visualisation.
 let colorPallete = ['#c74032', '#e4744f', '#fae096', '#b1d678', '#489558'];
 
+//sets the colors for sidebar that depend on the object quantity.
 export let changeColorOnQtySidebar = function (d, el) {
 	let dq = Number(d);
 
@@ -16,6 +18,7 @@ export let changeColorOnQtySidebar = function (d, el) {
 	}
 };
 
+//sets the colors for the circles that depend on the object quantity.
 export let changeColorOnQtyCircle = function (d) {
 	let dq = Number(d);
 

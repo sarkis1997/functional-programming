@@ -1,3 +1,5 @@
+//create the sidebar html elements through js and do things with it.
+
 const layout = document.getElementById('layOut');
 
 let h1 = document.createElement('h1');
