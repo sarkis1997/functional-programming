@@ -16,7 +16,6 @@ body {
     grid-row: 1/3;
     width: 25em;
     background: lightgray;
-    padding: 10em 0 0 5em;
 }
 
 .sidebar h1, .sidebar h2 {
@@ -38,21 +37,25 @@ body {
     height: 3em;
     text-align: center;
     line-height: 3;
-    color: white;
+}
+
+.legenda > div > span {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px;
 }
 
 .legenda > div:nth-of-type(1) {
-     background: #c8d9ff;
+     background: #c74032;
  }
 .legenda > div:nth-of-type(2) {
-    background: #98a9ff;
+    background: #e4744f;
 }
 .legenda > div:nth-of-type(3) {
-    background: #7586ff;
+    background: #fae096;
 }
 .legenda > div:nth-of-type(4) {
-    background: #003783;
+    background: #b1d678;
 }
 .legenda > div:nth-of-type(5) {
-    background: #00076d;
+    background: #489558;
 }

@@ -1,4 +1,4 @@
-let colorPallete = ['#c8d9ff', '#98a9ff', '#7586ff', '#003783', '#00076d'];
+let colorPallete = ['#c74032', '#e4744f', '#fae096', '#b1d678', '#489558'];
 
 export let changeColorOnQtySidebar = function (d, el) {
 	let dq = Number(d);

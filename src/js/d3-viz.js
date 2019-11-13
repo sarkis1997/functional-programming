@@ -5,6 +5,7 @@ const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/servic
 let herkomstData;
 
 let createD3 = function () {
+
 	//create new array with all qty's of objects.
 	let qtyList;
 	let getQtyArr = function(d) {
