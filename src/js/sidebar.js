@@ -2,11 +2,15 @@ const layout = document.getElementById('layOut');
 
 let h1 = document.createElement('h1');
 let h2 = document.createElement('h2');
+let div = document.createElement('div');
 let sidebar = document.createElement('div');
 
 sidebar.classList.add("sidebar");
-sidebar.appendChild(h1);
-sidebar.appendChild(h2);
+div.classList.add("metaData");
+
+div.appendChild(h1);
+div.appendChild(h2);
+sidebar.appendChild(div);
 layout.appendChild(sidebar);
 
 h1.append(document.createTextNode("Location: "));
