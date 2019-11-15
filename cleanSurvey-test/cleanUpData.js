@@ -98,6 +98,10 @@ function cleanData(data) {
 	        if (item == "" || item == "Geen studieschuld") {
 		        return item = 0;
 	        }
+	        // keep this text
+	        else if (item == "Hoe hoog is je studieschuld op dit moment?") {
+	        	return item;
+	        }
 	        // else return 27500 (more then 25000)
 	        return item = 27500
         }

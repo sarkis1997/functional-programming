@@ -45,7 +45,9 @@ let createD3 = function () {
 		//pass the data that will be used
 		.data(herkomstData)
 		//makes a circle for each object
-		.enter().append("circle")
+
+		.enter()
+		.append("circle")
 		//adds classes to each circle
 		.attr("class", "artist")
 		//passes the radius depending on the obj qty data I pass
