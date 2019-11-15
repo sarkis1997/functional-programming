@@ -85,7 +85,7 @@ Geen studieschuld
 /**
  * @return {string}
  */
-function CleanData(data) {
+function cleanData(data) {
     const array = data.split(/\n/)
     const items = array.map(item => {
         return item.split('-')
@@ -113,3 +113,5 @@ function CleanData(data) {
         }).toString().replace('.', ',') //Make string of number + replaces the decimal
     }).join("\r\n") //makes string (with new line) of the items array
 }
+
+console.log(cleanData(datastring))
