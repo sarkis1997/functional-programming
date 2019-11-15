@@ -1,4 +1,6 @@
-# Interactive NMVW data visualisation
+# Interactive data visualisation
+
+## NMVW's collection origin
 
 ## Install
 1. Run the terminal
