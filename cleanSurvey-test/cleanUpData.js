@@ -102,24 +102,29 @@ function cleanData(data) {
 	        return item = 27500
         }
 
-        // If it's not one item => 'Geen studieschuld or something',
-        // it's a range of numbers (a.k.a. [[1500][2000]])
+        // If it's more than 1 item, it's a range of numbers [[1500][2000]]
         let range = item.map(value => {
-            // Because quirks
+            // Because quirks (like more then 2 values seperated with ',' in the range)
             if (value.includes(', ')) {
                 return Number(value.split(', ')[0]) // Throw away second value after ,
             }
-
             return Number(value) // array of numbers
         });
 
+        // here gets the average calculated.
+	    // accumulating the values and dividing by the length of the range
         return range.reduce((accumulator, currentNumber) => {
-            return (accumulator + currentNumber) / range.length
+            let average = (accumulator + currentNumber) / range.length;
+            // check if it's a whole number, if it's not fix to max 2 decimals
+            if (average % 1 !== 0) {
+	            return average.toFixed(2)
+            }
+            return average
         })
-	        .toString()
-	        .replace('.', ',') //Make string of number + replaces the decimal
+	        .toString() //Make strings of numbers
+	        .replace('.', ',') //] + replaces all decimals
     })
-	    .join("\r\n") //makes string (with new line) of the items array
+	    .join("\r\n") //makes one string (with new line) of the items array
 }
 
 console.log(cleanData(datastring));
