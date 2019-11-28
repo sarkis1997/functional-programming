@@ -8,11 +8,11 @@
 3. Open the complete file in your code editor of choice.
 
 ## The assignment
-The assignment was to make a data visualisation which uses real data that is fetched from a server. \
+The assignment was to create a interactive data visualisation which uses external data. \
 The visualisation should be made with D3 and plain HTML, CSS and JavaScript.
     
 ## Concept
-I came with the idea to make something like a collapsible force layout (https://bl.ocks.org/mbostock/1062288). The idea is to collect a type of collection and to show the geolocations of it. Each circle will stand for a continent and the size of it will stand for the amount. I've chosen for this style of data visualization, because I think that the interaction fits good in my concept. And it's also scalable. If I would like I could bring the whole collection in map. First I'll bring up the type of object and after the geolocation with the size.
+I came with the idea to make something like a collapsible force layout (https://bl.ocks.org/mbostock/1062288). The idea is to collect a type of collection and to show the geolocations of it. Each circle will stand for a continent and the size of it will stand for the amount. I've chosen for this style of data visualization, because I think that the interaction fits good in my concept. And it's also scalable. If I would like I could bring the whole collection in map. First I'll bring up the type of object and after the geolocation with the size. If the geolocation sublevel items, it will be clickable. On click the sublevels will be shown.
 
 <img src="https://github.com/sarkis1997/functional-programming/blob/master/src/assets/concept.png">
 
@@ -26,6 +26,7 @@ This data visualisations brings better insight in the collection they own.
 * Circles that visualise the quantity of object with its size and color.
 * Click on circles to show its metadata in the sidebar.
 * Legend that shows what each color stands for.
+* IN PROGRESS (On click of parent node, show child nodes).
 
 ## API
 The API is a dataset of around 700.000 objects of the NMVW. 
@@ -41,52 +42,33 @@ To be more specific, I have fetched on geographical location starting on the top
   <summary>show</summary>
   
   ## Query for fetching the top geolocations and their object quantity
-  ```
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-   PREFIX dc: <http://purl.org/dc/elements/1.1/>
-   PREFIX dct: <http://purl.org/dc/terms/>
-   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-   PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-   PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  `{URI}` is a variable which is used to pass in child notes URI and fetch its data.
+  ```javascript
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX edm: <http://www.europeana.eu/schemas/edm/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-   SELECT ?herkomstSuper ?herkomstSuperLabel (COUNT(?cho) AS ?choCount) 
-   WHERE {
-     <https://hdl.handle.net/20.500.11840/termmaster2> skos:narrower ?herkomstSuper .
-     ?herkomstSuper skos:prefLabel ?herkomstSuperLabel .
+SELECT ?herkomstSuper ?herkomstSuperLabel (COUNT(?cho) AS ?choCount) 
+WHERE {
+  <${URI}> skos:narrower ?herkomstSuper .
+  ?herkomstSuper skos:prefLabel ?herkomstSuperLabel .
 
-     ?herkomstSuper skos:narrower* ?herkomstSub .
-     ?herkomstSub skos:prefLabel ?herkomstSubLabel .
+  ?herkomstSuper skos:narrower* ?herkomstSub .
+  ?herkomstSub skos:prefLabel ?herkomstSubLabel .
 
-     ?cho dct:spatial ?herkomstSub .
-
-   } GROUP BY ?herkomstSuper ?herkomstSuperLabel
-  ```
-  ## Query for fetching the sub geolocations and their object quantity
-  ```
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-   PREFIX dc: <http://purl.org/dc/elements/1.1/>
-   PREFIX dct: <http://purl.org/dc/terms/>
-   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-   PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-   PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-
-   SELECT ?herkomstSuper ?herkomstSuperLabel (COUNT(?cho) AS ?choCount) 
-   WHERE {
-     <https://hdl.handle.net/20.500.11840/termmaster8401> skos:narrower ?herkomstSuper .
-     ?herkomstSuper skos:prefLabel ?herkomstSuperLabel .
-
-     ?herkomstSuper skos:narrower* ?herkomstSub .
-     ?herkomstSub skos:prefLabel ?herkomstSubLabel .
-
-     ?cho dct:spatial ?herkomstSub .
-
-   } GROUP BY ?herkomstSuper ?herkomstSuperLabel
+  ?cho dct:spatial ?herkomstSub .
+  
+} GROUP BY ?herkomstSuper ?herkomstSuperLabel
+`
   ```
   
 </details>
 
 ## Data transformation code
-[Go to code](https://github.com/sarkis1997/functional-programming/wiki/Transforming-data)
+[Go to code](https://github.com/sarkis1997/frontend-data/wiki/Transforming-data)
 
 ## License
-<a href="https://github.com/sarkis1997/functional-programming/blob/master/LICENSE">MIT</a> @ Sarkis Moeradjan
+<a href="https://github.com/sarkis1997/frontend-data/blob/master/LICENSE">MIT</a> @ Sarkis Moeradjan
